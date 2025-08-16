@@ -3,6 +3,7 @@
 :root {
   /* navbar */
   --font-family: "Inter", sans-serif;
+  --text-color: #18191F;
   --primary-color: #4caf4f;
   --secondary-color: #263238;
   --info-color: #2194f3;

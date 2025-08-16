@@ -245,6 +245,9 @@
   .inline-flex {
     display: inline-flex;
   }
+  .table {
+    display: table;
+  }
   .h-6 {
     height: calc(var(--spacing) * 6);
   }
@@ -290,8 +293,17 @@
   .max-w-sm {
     max-width: var(--container-sm);
   }
+  .flex-grow {
+    flex-grow: 1;
+  }
   .grow {
     flex-grow: 1;
+  }
+  .border-collapse {
+    border-collapse: collapse;
+  }
+  .resize {
+    resize: both;
   }
   .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -375,8 +387,30 @@
   .rounded-md {
     border-radius: var(--radius-md);
   }
-  .bg-\[var\(--navbar-bg\)\] {
-    background-color: var(--navbar-bg);
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
+  .bg-\[--\] {
+    background-color: --;
+  }
+  .bg-\[--b\] {
+    background-color: --b;
+  }
+  .bg-\[--nea\] {
+    background-color: --nea;
+  }
+  .bg-\[--s\] {
+    background-color: --s;
+  }
+  .bg-\[--wh\] {
+    background-color: --wh;
+  }
+  .bg-\[var\(--bg\)\] {
+    background-color: var(--bg);
+  }
+  .bg-\[var\(--color-white\)\] {
+    background-color: var(--color-white);
   }
   .bg-\[var\(--neutral-color-black\)\] {
     background-color: var(--neutral-color-black);
@@ -532,6 +566,15 @@
   .text-\[\#18191F\] {
     color: #18191F;
   }
+  .text-\[--\] {
+    color: --;
+  }
+  .text-\[--nea\] {
+    color: --nea;
+  }
+  .text-\[--te\] {
+    color: --te;
+  }
   .text-\[var\(--color-white\)\] {
     color: var(--color-white);
   }
@@ -550,8 +593,14 @@
   .text-\[var\(--primary-color\)\] {
     color: var(--primary-color);
   }
+  .text-\[var\(--text-color\)\] {
+    color: var(--text-color);
+  }
   .text-\[var\(--text-grey\)\] {
     color: var(--text-grey);
+  }
+  .text-\[white\] {
+    color: white;
   }
   .text-black {
     color: var(--color-black);
@@ -568,6 +617,9 @@
   .text-white {
     color: var(--color-white);
   }
+  .underline {
+    text-decoration-line: underline;
+  }
   .shadow-lg {
     --tw-shadow: 0 10px 15px -3px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 4px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
@@ -579,6 +631,10 @@
   .shadow-sm {
     --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
   }
   .transition {
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, visibility, content-visibility, overlay, pointer-events;
@@ -653,6 +709,7 @@
 }
 :root {
   --font-family: "Inter", sans-serif;
+  --text-color: #18191F;
   --primary-color: #4caf4f;
   --secondary-color: #263238;
   --info-color: #2194f3;
@@ -686,6 +743,11 @@
   syntax: "*";
   inherits: false;
   initial-value: 0;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
 }
 @property --tw-leading {
   syntax: "*";
@@ -760,11 +822,17 @@
   inherits: false;
   initial-value: 0 0 #0000;
 }
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
       --tw-space-y-reverse: 0;
       --tw-space-x-reverse: 0;
+      --tw-border-style: solid;
       --tw-leading: initial;
       --tw-font-weight: initial;
       --tw-shadow: 0 0 #0000;
@@ -781,6 +849,7 @@
       --tw-ring-offset-width: 0px;
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-outline-style: solid;
     }
   }
 }
